@@ -6,10 +6,19 @@
 -->
 <ion-header>
   <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title>Pujar fotos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <h3>Des d'aqui es podran pujar les fotos.</h3>
+
+    <button ion-button round (click)="connectDB()" [color]="color">
+      {{ boto }}
+    </button>
+
 
 </ion-content>
