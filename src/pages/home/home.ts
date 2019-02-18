@@ -11,4 +11,6 @@ export class HomePage {
 
   }
 
+  configUrl = 'assets/config.json';
+
 }
