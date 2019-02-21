@@ -1,0 +1,18 @@
+{
+	"APP": {
+		"About": "About",
+		"Cancel": "Cancel",
+		"Contact": "Contact",
+		"Done": "Done",
+		"Hello": "Hello",
+		"Title": "Fotobox",
+		"lang-current": "Current language",
+		"language": "Language"
+	},
+	"Menu": {
+		"Home": "Home",
+		"Show-photos": "View photos",
+		"Title": "Menu",
+		"Upload-photos": "Upload photos"
+	}
+}

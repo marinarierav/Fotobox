@@ -7,6 +7,9 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { UploadPage } from '../pages/upload/upload';
 
+// ngx-translate
+import { LangService } from '../providers/lang-service';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,14 +20,21 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  currentLang : string;
+
+  constructor(  private platform: Platform, 
+                private statusBar: StatusBar, 
+                private splashScreen: SplashScreen,
+                private langService : LangService,
+                ) 
+  {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Veure fotos', component: ListPage },
-      { title: 'Pujar fotos', component: UploadPage }
+      { title: 'Menu.Home', component: HomePage },
+      { title: 'Menu.Show-photos', component: ListPage },
+      { title: 'Menu.Upload-photos', component: UploadPage }
     ];
 
   }
@@ -35,6 +45,10 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.langService.init("ca", ["en", "ca"]);
+
+      this.langService.onLang.subscribe((lang) => this.currentLang = lang );
     });
   }
 
@@ -43,4 +57,9 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  setLanguage(lang: string) {
+    this.langService.setLanguage(lang);
+  }
+
 }
